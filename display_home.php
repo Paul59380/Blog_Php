@@ -20,7 +20,7 @@
 
             <p>
                 <?= htmlspecialchars($data['content']) ?> <br>
-                <a href="comment.php?id=<?= $data['id'] ?>">Commentaires</a>
+                <a href="post.php?id=<?= $data['id'] ?>">Commentaires</a>
             </p>
         </div>
     <?php

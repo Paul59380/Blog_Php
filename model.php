@@ -9,7 +9,7 @@ function getPosts(){
 
 function getPost($postId){
     $db = dbConnect();
-    $reply = $db ->prepare('SELECT title, content, DATE_FORMAT(creation_date, "%d%m%Y à %Hh:%imin:%ss")
+    $reply = $db ->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh:%imin:%ss")
     AS new_date_fr FROM tickets WHERE id = :id');
     $reply ->execute(array(
         ":id" => $postId
@@ -21,16 +21,14 @@ function getPost($postId){
 
 function getComments($postId){
     $db = dbConnect();
-
-    $comment = $db ->prepare("SELECT post_id, author, comments, comment_date FROM comments 
-    WHERE post_id = :postId 
-    ORDER BY comment_date DESC LIMIT 0,10");
-    $comment -> execute(array(
-        ":postId" => $postId
+    $comments = $db ->prepare('SELECT post_id, author, comments, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh:%imin:%ss") 
+    AS new_date_fr FROM comments WHERE post_id = :id_post ORDER BY comment_date DESC LIMIT 0,7');
+    $comments ->execute(array(
+        ":id_post" => $postId
     ));
-
-    return $comment;
+    return $comments;
 }
+
 
 function dbConnect(){
     try{
