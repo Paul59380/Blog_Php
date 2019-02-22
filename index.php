@@ -30,7 +30,6 @@
             </div>
 
     <?php
-/* It's good ? */
         }
     ?>
 </body>
