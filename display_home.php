@@ -10,18 +10,22 @@
 <h3>Découvrez nos différents billet : </h3>
 
 <?php
-while($data = $reply ->fetch()){
-    ?>
-    <div class="billet">
-        <div class="titre">
-            <span> <?php echo htmlspecialchars($data['title']) . ' <br> ' . htmlspecialchars($data['new_date']); ?> </span>
+    while($data = $posts ->fetch()){
+        ?>
+        <div class="billet">
+
+            <div class="titre">
+                <span> <?= htmlspecialchars($data['title']) . ' <br> ' . htmlspecialchars($data['new_date_fr']); ?> </span>
+            </div>
+
+            <p>
+                <?= htmlspecialchars($data['content']) ?> <br>
+                <a href="comment.php?id=<?= $data['id'] ?>">Commentaires</a>
+            </p>
         </div>
-        <p> <?php echo htmlspecialchars($data['content']) ?><br>
-            <a href="comment.php?id=<?php echo $data['id'] ?>">Commentaires</a>
-        </p>
-    </div>
     <?php
-}
-?>
+    }
+        $posts -> closeCursor();
+    ?>
 </body>
 </html>
