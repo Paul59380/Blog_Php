@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="design.css" rel="stylesheet">
-    <title>Mon super site</title>
-</head>
-<body>
-<h1>Bienvenue sur mon blog !</h1>
-<h3>Découvrez nos différents billet : </h3>
+<?php $title = "Bienvenue sur mon Blog ! "?>
+
+<?php  ob_start(); ?>
+
+<h1>Bienvenue sur mon Blog !</h1>
+<h3>Découvrez nos derniers billets </h3>
 
 <?php
     while($data = $posts ->fetch()){
@@ -27,5 +23,5 @@
     }
         $posts -> closeCursor();
     ?>
-</body>
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php') ?>
