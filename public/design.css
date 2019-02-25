@@ -1,0 +1,42 @@
+.billet{
+    text-align: justify;
+    margin: auto;
+    width: 50%;
+    background-color: grey;
+    padding : 5px;
+    border-radius: 6px;
+    color : white;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.titre{
+    font-size: large;
+    font-style: italic;
+}
+
+.billet p{
+    background-color: lightgrey;
+    padding: 6px;
+    color: black;
+}
+
+a{
+    color :red;
+}
+
+#comment{
+    background-color: #66c4ff;
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 10px;
+    width : 20%;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    margin-left: 1%;
+    margin-top: 15px;
+}
+
+#comment p {
+    margin-left: 15px;
+}

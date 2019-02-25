@@ -1,11 +1,16 @@
 <?php
-    require('controller.php');
+    require('controller/controller.php');
 
     if(isset($_GET['action'])){
         if($_GET['action'] == "listPosts"){
             listPosts();
         }
         elseif ($_GET['action'] == "post"){
-            post();
+            if(isset($_GET['id']) && $_GET['id'] > 0){
+                post();
+            }else{
+                echo "<h1>Erreur : </h1> 
+                      <p>Ce billet n'existe pas</p>";
+            }
         }
     }
