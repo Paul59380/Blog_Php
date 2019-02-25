@@ -1,4 +1,11 @@
 <?php
-    require ('model.php');
-    $posts = getPosts(); // Must have the same name than the variable in display_home
-    require('display_home.php');
+    require('controller.php');
+
+    if(isset($_GET['action'])){
+        if($_GET['action'] == "listPosts"){
+            listPosts();
+        }
+        elseif ($_GET['action'] == "post"){
+            post();
+        }
+    }

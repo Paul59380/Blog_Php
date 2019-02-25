@@ -16,7 +16,7 @@
 
             <p>
                 <?= htmlspecialchars($data['content']) ?> <br>
-                <a href="post.php?id=<?= $data['id'] ?>">Commentaires</a>
+                <a href="index.php?id=<?= $data['id'] ?>&action=post">Commentaires</a>
             </p>
         </div>
     <?php
