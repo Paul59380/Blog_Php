@@ -37,6 +37,16 @@ function dbConnect(){
     }catch (Exception $e){
         die('Erreur : ' .$e ->getMessage());
     }
-
     return $db;
+}
+
+function postComment($postId, $author, $postComments){
+    $db = dbConnect();
+    $comments = $db -> prepare('INSERT INTO comments(post_id, author, comments) VALUE(:postId, :author, :postComments)');
+    $affectLine = $comments ->execute(array(
+        ":postId" => $postId,
+        ":author" => $author,
+        ":postComments" => $postComments
+    ));
+    return $affectLine;
 }

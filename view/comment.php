@@ -26,5 +26,22 @@
 <?php
     }
 ?>
+
+<form action="index.php?id=<?= $_GET['id'] ?>&action=addComment" method="POST">
+    <p>
+        <label for="author">Auteur : </label> <br>
+            <input type="text" name="author" id="author" />
+    </p>
+
+    <p>
+        <label for="comments">Commentaire : </label> <br>
+            <input type="text" name="comments" id="comments" />
+    </p>
+
+    <p>
+        <input type="submit" value="Send" />
+    </p>
+</form>
+
 <?php $content = ob_get_clean(); ?>
 <?php require ('template.php') ?>
